@@ -1,0 +1,2 @@
+tsc scripts/assignment08-functions.ts
+tsc code/scripts/example-typescript.ts

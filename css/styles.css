@@ -1,0 +1,1034 @@
+
+@charset "utf-8";
+
+@font-face {
+    font-family: 'rubikregular';
+    src: url('../fonts/rubik-regular-webfont.woff2') format('woff2'),
+         url('../fonts/rubik-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+p{
+    font:'rubikregular';
+}
+
+html {
+    font-size:16px;
+    box-sizing: border-box;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+/* for showing/hiding the nav menu */
+.show{
+    display:block;
+}
+/* nav dosent show by default (mobile view) */
+nav{
+    display:none;
+}
+
+/* ------ Variables ------ */
+:root{     
+
+    /* default colors */    
+    
+    --header--color:rgb(75,104,131);
+    --header-color-transparent:rgba(75,104,131, 0.25);  
+    
+    --header-main-color:rgb(17, 75, 129);
+    --header-main-color-transparent:rgba(75,104,131, 0.25);    
+    
+    --second-color:rgb(255,226,141);  
+    --second-color-transparent:rgba(255,226,141, 0.25);
+
+    --second-main-color:rgb(250, 249, 245);    
+    --second-main-color-transparent:rgba(255,226,141, 0.25);
+
+    --dark-color:#242424;             /* near-but-not black */
+    --body-dark-color:#242424;  
+    --light-color:rgb(245, 245, 245); /* not-quite white*/    
+    
+    --tr-header-background-color: #344e0c;
+	--tr-header-font-color:#f8e7da;
+    --tr-row-background-color:rgb(255,226,141);  
+    
+    --article-main-border-color:rgb(17, 75, 129);
+    --article-main-background-color:rgba(255,226,141, 0.25);
+
+    --article-border-color:rgb(17, 75, 129);
+    --article-background-color:rgb(250, 249, 245);
+    --article-header2-color:rgb(17, 75, 129);
+    --article-image-border-color:#540B0E;
+    
+	--light-green-color: rgb(50, 205, 50);
+	--forest-green-color: rgb(34, 139, 34);
+	--red-color: rgb(255, 0, 0);
+	--black-color:rgb(2, 48, 32);
+	
+    /* spacing/layout */
+    --content-gap:10px;
+	
+     /* near-but-not black */
+	--dark-color:#242424;
+		
+}
+
+/* ------ HTML Element Selectors ------ */
+body {
+    margin: 0;
+    background: linear-gradient(to right, var(--body-dark-color) 0%,
+                                        rgb(0, 0, 0) 20%,
+                                        rgb(0, 0, 0) 80%,
+                                        var(--body-dark-color) 100%);     
+}
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+h1, h2, h3, h4, h5, h6{
+    
+    letter-spacing:3px;
+}
+
+h2, h3, h4, h5, h6{
+    text-shadow: 1px 1px 0px var(--second-main-color);
+}
+h1, h2, h3, h4, h5, h6, p {
+    margin-top: 0;
+}
+
+a{
+	font-weight:bold;
+    font-size: 1.15rem;
+	color:var(--header-main-color);
+    /* remove usual link underline */
+    text-decoration:none;
+    /* border-bottom to make underline */
+    border-bottom:solid 3px var(--second-main-color);
+}
+
+a:hover, a:focus{	
+    border-bottom:solid 3px var(--header-main-color);
+	text-decoration:none;    
+}
+
+a:active{
+    color:var(--header-main-color);
+}
+
+nav ul{
+	list-style: none;
+	margin: 0;
+	padding:0px;
+}
+
+nav a{
+    display: block;
+    text-align:center;
+    padding:4px;    
+    border-width:0px;
+    background-color: var(--second-main-color);
+    border-bottom:solid 1px var(--header-main-color);
+}
+
+nav a:link, nav a:visited { 
+    text-decoration: none;
+    border-bottom-width:1px;
+}
+
+nav a:hover{
+    background-color: var(--header-main-color);
+    color:var(--second-main-color);
+    text-decoration: none;
+    border-width:0px;
+}
+
+section article_old{
+	display:flex;
+    border:solid 3px var(--article-border-color);
+    padding:var(--content-gap);
+    margin:var(--content-gap);
+	border-radius: 20px/10px; 
+    background-color: var(--article-background-color);
+    border-width: 5px;
+    column-count: 2;
+    width: 300px;
+    height: 300px;
+}
+
+
+section article{
+    border:solid 2px var(--main-color);
+    padding:var(--content-gap);
+    margin:var(--content-gap);
+    border-radius: 10px/5px;
+    background-color: var(--second-color-transparent);
+}
+
+
+header {
+    background-color: var(--header-main-color);
+    color:var(--light-color);
+    padding: 20px;
+    border-bottom:solid 3px var(--second-main-color);
+    box-shadow: 0px 3px 8px 0px var(--header-main-color);
+    border-top:solid 1px var(--second-main-color-transparent);
+}
+
+header h1 {
+    margin: 0px;
+    text-shadow: 1px 1px 0px var(--light-color), 3px 3px 0px var(--dark-color);
+}
+
+main {
+    padding: var(--content-gap) 2px;
+}
+
+footer {
+    color: var(--header-main-color);
+    background-color:var(--second-main-color);
+    padding:var(--content-gap);
+    margin:0px;
+}
+
+/* a relative position parent element ...*/
+header{
+    position:relative;
+}
+
+section h2{
+	padding:20px;
+}
+
+article{
+	margin:var(--content-gap);
+	padding:var(--content-gap);
+	border:solid 3px var(--article-border-color);
+	background-color:white;
+	position:relative;
+}
+article h2{
+	position:absolute;
+	top:-5px;
+	left:15px;
+	background-color: var(article-header2-color);
+	border-radius:5px;
+	padding:3px;
+	font-size:1em;
+}
+
+article p{
+	padding:var(--content-gap);
+}
+
+table{
+    border-style:solid;
+    border-width:1px;
+    width:100%;
+}
+td, th{
+    border-style:solid;
+    border-width:1px;
+}
+
+/* a relative position parent element ...*/
+header{
+    position:relative;
+}
+
+section h2{
+	padding:20px;
+}
+
+form {
+    border: 1px solid var(--dark-color);
+    padding: 20px;
+    max-width: 360px;
+    margin-bottom: 30px;
+}
+
+
+.tr-header-color{
+    background-color: var(--tr-header-background-color);
+	color:var(--tr-header-font-color);
+}
+
+.tr-row-color{
+    background-color: var(--tr-row-background-color);
+}
+
+.article-image{
+    border:solid 3px var(--article-image-border-color);
+    border-radius:8px;
+    display:flex;
+    flex-wrap: wrap; 
+}
+
+.article-image-list{
+    border:solid 3px var(--article-image-border-color);
+    border-radius:8px;
+    display:flex;
+    flex-wrap: wrap; 
+    max-width: 100%;
+    height: auto;
+    flex: 1 1 300px; /* Allows images to grow/shrink, starting at 300px */
+	width: 100px; /* Adjust as needed */
+    height: 100px; /* Keeps them uniform */
+}
+
+/* article-image-list-overview */
+
+.article-image-list-overview{
+    border:solid 3px var(--article-image-border-color);
+    border-radius:8px;
+    display:flex;
+    flex-wrap: wrap; 
+    max-width: 100%;
+    height: auto;
+    flex: 1 1 300px; /* Allows images to grow/shrink, starting at 300px */
+	width: 400px;    /* Adjust as needed */
+    height: 400px;   /* Keeps them uniform */
+}
+
+.container {
+  display:flex;
+  border:10px solid second-color-transparent;
+  gap: 80px;
+  flex-wrap: wrap; 
+}
+.column {
+  flex: 0 0 50%; 
+  box-sizing: border-box; 
+  width: 100%;
+}
+
+ .right-align {
+    text-align: right;
+ }
+
+ .article-height-one-hundred{
+	display:flex;
+    border:solid 3px var(--article-border-color);
+    padding:var(--content-gap);
+    margin:var(--content-gap);
+	border-radius: 20px/10px; 
+    background-color: var(--article-background-color);
+    border-width: 5px;
+    column-count: 2;
+    width: 100px;
+    height: 100px;
+}
+
+ .article-height-two-hundred{
+	display:flex;
+    border:solid 3px var(--article-border-color);
+    padding:var(--content-gap);
+    margin:var(--content-gap);
+	border-radius: 20px/10px; 
+    background-color: var(--article-background-color);
+    border-width: 5px;
+    column-count: 2;
+    width: 200px;
+    height: 200px;
+}
+
+
+.article-height-three-hundred{
+	display:flex;
+    border:solid 3px var(--article-border-color);
+    padding:var(--content-gap);
+    margin:var(--content-gap);
+	border-radius: 20px/10px; 
+    background-color: var(--article-background-color);
+    border-width: 5px;
+    column-count: 2;
+    width: 360px;
+    height: 300px;
+}
+
+  
+.article-height-six-hundred{
+	display:flex;
+    border:solid 3px var(--article-border-color);
+    padding:var(--content-gap);
+    margin:var(--content-gap);
+	border-radius: 20px/10px; 
+    background-color: var(--article-background-color);
+    border-width: 5px;
+    column-count: 2;
+    width: 360px;
+    height: 600px;
+}
+
+.article-height-nine-hundred{
+	display:flex;
+    border:solid 3px var(--article-border-color);
+    padding:var(--content-gap);
+    margin:var(--content-gap);
+	border-radius: 20px/10px; 
+    background-color: var(--article-background-color);
+    border-width: 5px;
+    column-count: 2;
+    width: 360px;
+    height: 900px;
+}
+
+.article-height-eleven-hundred{
+	display:flex;
+    border:solid 3px var(--article-border-color);
+    padding:var(--content-gap);
+    margin:var(--content-gap);
+	border-radius: 20px/10px; 
+    background-color: var(--article-background-color);
+    border-width: 5px;
+    column-count: 2;
+    width: 360px;
+    height: 1100px;
+}
+
+.article-height-one-thousand{
+	display:flex;
+    border:solid 3px var(--article-border-color);
+    padding:var(--content-gap);
+    margin:var(--content-gap);
+	border-radius: 20px/10px; 
+    background-color: var(--article-background-color);
+    border-width: 5px;
+    column-count: 2;
+    width: 360px;
+    height: 1000px;
+}
+
+.article-height-thirteen-hundred{
+	display:flex;
+    border:solid 3px var(--article-border-color);
+    padding:var(--content-gap);
+    margin:var(--content-gap);
+	border-radius: 20px/10px; 
+    background-color: var(--article-background-color);
+    border-width: 5px;
+    column-count: 2;
+    width: 360px;
+    height: 1300px;
+}
+
+.article-height-fifteen-hundred{
+	display:flex;
+    border:solid 3px var(--article-border-color);
+    padding:var(--content-gap);
+    margin:var(--content-gap);
+	border-radius: 20px/10px; 
+    background-color: var(--article-background-color);
+    border-width: 5px;
+    column-count: 2;
+    width: 360px;
+    height: 1500px;
+}
+
+
+
+.red-background{
+	background-color:var(--red-color);
+	color:var(--tr-header-font-color);
+	text-align: right;
+}
+
+.light-green-background{
+	background-color:var(--light-green-color);
+	color:var(--tr-header-font-color);
+	text-align: right;
+}
+
+.forest-green-background{
+	background-color:var(--forest-green-color);
+	color:var(--tr-header-font-color);
+	text-align: right;
+}
+
+.forest-green-background-left{
+	background-color:var(--forest-green-color);
+	color:var(--tr-header-font-color);
+	text-align: left;
+}
+
+
+/*
+basic horizontal and vertical 
+alignment style rules.		
+*/
+
+.right_align{
+    text-align:right;
+}
+.top_align{
+    vertical-align:top;
+}
+.left_align{
+    text-align:left;
+	column-width: 100%;
+	width: 100%;
+}
+
+/* ...so we can absolute position the child */
+.menu-toggle{
+
+    background-color:var(--header-main-color);
+    color: var(--second-main-color);
+    font-weight: bold;
+    font-size:2em;
+    border:none;
+
+    position: absolute;
+    top:20px;
+    right:10px;
+
+    cursor:pointer;
+}
+
+.important{/* outline and highlight important stuff */
+    padding: 16px;
+    background-color: rgba(255,255,0,.15);
+    border-radius: 9px;
+    border:solid 1px black;;    
+    box-shadow: 0px 0px 0px 4px var(--main-color); 
+}
+
+
+/*
+The following code is obtained from Google Gemini
+The query to obtain the code from Google Gemini is:
+how do we create a password hide and show button for the password field using html form? 
+----------------------------------------------------------------------------------------------------
+*/
+.password-container {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  max-width: 170px;
+  height: 20px;
+}
+
+.password-container input {
+  width: 100%;
+  height: 50%;
+  padding: 10px;
+  padding-right: 60x; /* Leave space so text doesn't go under the button */
+  box-sizing: border-box;
+    height: 20px;
+}
+
+.password-container button {
+  position: absolute;
+  right: 5px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: #0076ff;
+  cursor: pointer;
+  font-weight: bold;
+  height: 20px;
+}
+/*
+----------------------------------------------------------------------------------------------------
+*/
+
+
+/*
+The following code is obtained from Google Gemini
+The query to obtain the code from Google Gemini is:
+how do we create a tooltip pop up when the mouse hover over the question mark in the form? 
+Styling the question mark circle 
+----------------------------------------------------------------------------------------------------
+*/
+.tooltip-container {
+  position: relative;
+  display: inline-block;
+  background-color: #666;
+  color: white;
+  border-radius: 50%;
+  width: 18px;
+  height: 18px;
+  text-align: center;
+  font-size: 12px;
+  line-height: 18px;
+  cursor: help;
+  margin-left: 5px;
+}
+
+/* Base style for the tooltip popup box (hidden by default) */
+.tooltip-container .tooltip-text {
+  visibility: hidden;
+  width: 200px;
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 8px;
+  font-size: 13px;
+  font-family: sans-serif;
+  
+  /* Absolute positioning right next to the question mark */
+  position: absolute;
+  z-index: 1;
+  bottom: 125%; /* Places it directly above the '?' */
+  left: 50%;
+  transform: translateX(-50%); /* Centers it horizontally */
+  
+  /* Smooth fade-in effect */
+  opacity: 0;
+  transition: opacity 0.2s ease-in-out;
+}
+
+/* The Magic Trick: Show the popup when hovering over the container */
+.tooltip-container:hover .tooltip-text {
+  visibility: visible;
+  opacity: 1;
+}
+/*
+----------------------------------------------------------------------------------------------------
+
+//***********************************************************************************
+*/
+
+
+/*
+----------------------------------------------------------------------------------------------------
+
+//***********************************************************************************
+//The following code is obtained from Google Gemini
+//The query to obtain the code from Google Gemini is:
+//Q1: Can you let me know if this css is correct? I want to have 1 row and two column. inside the 1st colum on the left has one row, but the 2nd column on the right has four rows inside.
+//Q2: How do we put Quantity label and input box in the same line?
+*/
+
+/* 4. Create a sub-grid for the 4 rows on the right side */
+.right-column-wrapper {
+  display: grid;
+  grid-template-rows: repeat(4, 1fr); /* Creates 4 equal rows */
+  gap: 10px; /* Gap between the 4 nested rows */
+}
+
+/* Left Column - Main Feature Box */
+.left-feature {
+  background-color: #f4f4f4; /* Temporary background to see the box */
+  padding: 20px;
+  border-radius: 8px;
+  
+  /* Flexbox makes it easy to center content inside this big box if needed */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; 
+}
+
+/* Main Container: 1 Row, 2 Columns */
+.main-page-container {
+  display: grid; 
+  grid-template-columns: 2fr 1fr; /* Left is wider, right is narrower */
+  gap: var(--content-gap); 
+}
+
+
+/* Optional: Just placeholder styling to help you see the boxes */
+.content-box {
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  padding: 15px;
+  text-align: center;
+}
+
+.form-group {
+  display: flex;         /* Aligns items side-by-side */
+  align-items: center;   /* Perfectly centers them vertically */
+  gap: 10px;             /* Adds a clean 10px space between the label and input */
+  margin-bottom: 15px;   /* Optional: adds space between this row and the legend below */
+}
+
+
+
+.demo-title {
+    text-align: center;
+}
+
+.request-animation-frame-demo {
+    height: 800px;
+    max-width: 600px;
+    border: 5px solid red;
+    position: relative;
+    margin: 0 auto;
+    background-color: #353535;
+}
+
+.request-animation-frame-demo-01{
+    /*
+    background-color: black;
+    */
+     background-color: #353535;
+     height: 800px;
+     max-width: 600px;
+     border: 5px solid red;
+     position: relative;
+     margin: 0 auto;
+}
+
+.request-animation-frame-demo {
+    padding: 20px;
+    color: red;
+    border: 5px solid #1c61f7;
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+.request-animation-frame-demo h3{
+    margin-bottom: 8px;
+}
+
+.request-animation-frame-demo .demo-box-col,
+.demo-box-col {
+    border: 3px solid white;
+    padding: 10px;
+    font-size: 0.6em;
+}
+
+.request-animation-frame-demo .demo-box-col-01,
+.request-animation-frame-demo .demo-box-col-02 {
+    width: 48%;
+    margin-bottom: 4%;
+}
+
+.set-interval-demo-02 .demo-box-col-01,
+.request-animation-frame-demo .demo-box-col-01 {
+    padding-left: 4px;
+    padding-right: 4px;
+}
+
+.request-animation-frame-demo-01 .demo-box-col-01,
+.request-animation-frame-demo-01 .demo-box-col-02 {
+    width: 100%;
+}
+
+.request-animation-frame-demo-01 .demo-box-col-01 {
+    /*
+    height: auto;
+    */
+    height: 150px;
+    position: relative;
+}
+
+.request-animation-frame-demo :last-child {
+    margin-bottom: 0;
+}
+
+.request-animation-frame-demo p {
+    font-size: 2em;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+#quantity {
+  width: 50%;
+  max-width: 70px;
+}
+#colorbutton {
+  width: 200%;
+  max-width: 170px;
+}
+#sizebutton {
+  width: 100%;
+  max-width: 70px;
+}
+
+/*
+//***********************************************************************************
+----------------------------------------------------------------------------------------------------
+*/
+
+
+
+/*
+----------------------------------------------------------------------------------------------------
+*/
+
+
+/* ------ #id Selectors ------ */
+#wrapper {
+    max-width: 900px;
+    margin: 0 auto;
+    background-color: var(--light-color);
+
+    /* use grid to make sticky footer effect */
+    display: grid;
+    min-height:100vh;
+    grid-template-rows: auto auto 1fr auto;
+	
+}
+
+@media (min-width:300px){
+
+    .menu-toggle{
+        display:none;
+    }
+    nav{
+        display:block;
+        border-bottom: solid 2px var(--header-main-color);
+        box-shadow: 0px 1px 3px var(--header-main-color);
+    }
+    nav ul{
+        display: flex;
+        background-color: var(--second-main-color);
+        padding-left:20px;
+    }
+    nav a,  nav a:link, nav a:visited{
+        border-bottom:0px;
+        padding:10px;
+        border-left:solid 1px var(--header-main-color);
+    }
+    nav li:last-child a{
+        border-right:solid 1px var(--header-main-color);
+    }
+
+    /* display text beside images */
+	.user-data-articles article{
+		display: flex;
+
+	}
+    
+    .user-data-articles article img{
+		max-width:250px;	
+	}	
+
+    /* display text beside images */
+	.user-data-articles-with-picture article{
+		display: grid;
+	}
+    
+    .user-data-articles-with-picture article img{
+		max-width:250px;	
+	}
+
+    /* Main Container: 1 Row, 2 Columns */
+    .main-page-container {
+        display: grid; 
+        grid-template-columns: 1fr;
+        gap: var(--content-gap); 
+    }
+
+}
+
+
+@media (min-width:800px){
+
+    .menu-toggle{
+        display:none;
+    }
+    nav{
+        display:block;
+        border-bottom: solid 2px var(--header-main-color);
+        box-shadow: 0px 1px 3px var(--header-main-color);
+    }
+    nav ul{
+        display: flex;
+        background-color: var(--second-main-color);
+        padding-left:20px;
+    }
+    nav a,  nav a:link, nav a:visited{
+        border-bottom:0px;
+        padding:10px;
+        border-left:solid 1px var(--header-main-color);
+    }
+    nav li:last-child a{
+        border-right:solid 1px var(--header-main-color);
+    }
+
+    /* display text beside images */
+	.user-data-articles article{
+		display: flex;
+	}
+    
+    .user-data-articles article img{
+		max-width:250px;	
+	}	
+    
+    /* display text beside images */
+	.user-data-articles-with-picture article{
+		display: grid;
+	}
+    
+    .user-data-articles-with-picture article img{
+		max-width:250px;	
+	}
+
+    /* Main Container: 1 Row, 2 Columns */
+    .main-page-container {
+        display: grid; 
+        grid-template-columns: 1fr;
+        gap: var(--content-gap); 
+    }
+}
+
+@media (min-width:1200px){
+
+    .menu-toggle{
+        display:none;
+    }
+    nav{
+        display:block;
+        border-bottom: solid 2px var(--header-main-color);
+        box-shadow: 0px 1px 3px var(--header-main-color);
+    }
+    nav ul{
+        display: flex;
+        background-color: var(--second-main-color);
+        padding-left:20px;
+    }
+    nav a,  nav a:link, nav a:visited{
+        border-bottom:0px;
+        padding:10px;
+        border-left:solid 1px var(--header-main-color);
+    }
+    nav li:last-child a{
+        border-right:solid 1px var(--header-main-color);
+    }
+
+    /* display text beside images */
+	.user-data-articles article{
+		display: flex;
+	}
+    
+    .user-data-articles article img{
+		max-width:250px;	
+	}	
+    
+    /* display text beside images */
+	.user-data-articles-with-picture article{
+		display: grid;
+	}
+    
+    .user-data-articles-with-picture article img{
+		max-width:250px;	
+	}
+
+    /* Main Container: 1 Row, 2 Columns */
+    .main-page-container {
+        display: grid; 
+        grid-template-columns: 2fr 1fr; /* Left is wider, right is narrower */
+        gap: var(--content-gap); 
+    }
+
+}
+
+@media (min-width: 500px){
+    .set-timeout-demo .demo-box-col {
+        font-size: 0.75em;
+    }
+
+    .request-animation-frame-demo .demo-box-col-01,
+    .request-animation-frame-demo .demo-box-col-02 {
+        width: 32%;
+        margin-bottom: 0;
+    }
+
+    .set-interval-demo-02 .demo-box-col-02,
+    .request-animation-frame-demo-01 .demo-box-col-02 {
+        width: 30%;
+    }
+
+    .request-animation-frame-demo-01 .demo-box-col-02 {
+        order: -1;
+    }
+
+    .set-interval-demo-02 .demo-box-col-01,
+    .request-animation-frame-demo-01 .demo-box-col-01,
+    .animate-demo-01 .demo-box-col-01 {
+        flex: 1;
+        height: auto;
+    }
+
+    .request-animation-frame-demo-01 .demo-box-col-02 {
+        margin-right: 4%;
+    }
+
+}
+
+@media (min-width: 560px){
+    .request-animation-frame-demo .demo-box-col {
+        font-size: 0.85em;
+    }
+}
+
+@media (min-width: 580px){
+    .request-animation-frame-demo-01 .demo-box-col-02 {
+        width: 25%;
+    }
+}
+
+@media (min-width: 620px){
+    .request-animation-frame-demo .demo-box-col-01 {
+        font-size: 1em;
+    }
+}
+
+.article-title-center {
+    text-align: center;
+}
+/*  used by the jquery  examples */
+#container{
+    background-color: black;
+    position:relative;
+    min-height:200px;
+}
+.pac-man,
+.request-animation-frame-demo .pac-man,
+.animate-demo .pac-man {
+    /*  */
+    width: 40px;
+    position: absolute;
+    top: 50%;
+    left: 0 ;
+    margin-top: -20px;
+}
+
+
+
+/*  
+#pacman
+used by the setInterval and 
+requestAnimationFrame examples 
+
+this is the pacman IMG 
+absolute position inside relative parent
+allows easy .JS adjustment of position
+*/
+#pacman{
+    position: absolute;
+    top:0px;
+    left:0px;
+    width:50px;
+}
+
+/*  
+.pac-man-container
+used by the setInterval and 
+requestAnimationFrame examples 
+
+this is the 'gameboard' the pacman moves in 
+non-static parent means #pacman child
+will be positioned according to this container
+*/
+.pac-man-container {
+    /*  stop pac man from moving too far to the right 
+        (the image is 40px wide)
+    */
+    width: calc(100% - 45px);
+    height: 100%;
+    /* move children relative to this container  */
+    position: relative;
+}
